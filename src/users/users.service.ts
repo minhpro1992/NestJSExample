@@ -23,6 +23,14 @@ export class UsersService {
     }
     return user;
   }
+  async findUserByEmail(email: string) {
+    const users = await this.usersRepo.find({
+      where: {
+        email,
+      },
+    });
+    return users;
+  }
   async updateUser(id: number, attrs: Partial<UsersEntity>) {
     const user = await this.usersRepo.findOne({
       where: {

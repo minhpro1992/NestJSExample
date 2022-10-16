@@ -9,7 +9,6 @@ export class MessagesRepository {
       const messages = JSON.parse(content);
       return messages;
     } catch (error) {
-      console.log(error);
       return {};
     }
   }
