@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MessagesEntity } from './messages/messages.entity';
 import { MessagesModule } from './messages/messages.module';
+import { ReportsEntity } from './reports/reports.entity';
+import { ReportsModule } from './reports/reports.module';
 import { UsersEntity } from './users/users.entity';
 import { UsersModule } from './users/users.module';
 
@@ -11,12 +13,14 @@ import { UsersModule } from './users/users.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'db.sqlite',
-      entities: [MessagesEntity, UsersEntity],
+      database: 'db_copy.sqlite',
+      entities: [MessagesEntity, UsersEntity, ReportsEntity],
       synchronize: true,
+      autoLoadEntities: true,
     }),
     MessagesModule,
     UsersModule,
+    ReportsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,0 +1,25 @@
+### Create report
+POST  http://localhost:3000/reports/create
+Content-Type: application/json
+
+{
+    "price": 10000,
+    "make": "VINFAST",
+    "model": "Fadil",
+    "year": 2015
+}
+
+### List reports
+GET http://localhost:3000/reports
+
+### Request to approve report
+
+PATCH  http://localhost:3000/reports/3
+Content-Type: application/json
+
+{
+    "approved": true
+}
+
+### Get estimate report
+GET http://localhost:3000/reports/estimate?make="VINFAST"&model="Fadil"&year=2015
